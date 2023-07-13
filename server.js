@@ -1,12 +1,25 @@
 const express = require('express')
+const { create } = require('express-handlebars')
 const cookieParser = require('cookie-parser')
+
+const { rootRoutes } = require('./routes')
+const handlebarsHelpers = require('./helpers/handlebars')
 
 class Server {
   constructor() {
     this.app = express()
     this.port = process.env.PORT || 3000
+    this.hbs = create({ 
+      extname: 'hbs',
+      helpers: handlebarsHelpers,
+      layoutsDir: './views/layouts',
+      partialsDir: './views/partials',
+      defaultLayout: 'main'
+    })
 
-    this.paths = {}
+    this.paths = {
+      root: '/'
+    }
 
     // Database
     this.connectDB()
@@ -23,15 +36,24 @@ class Server {
   }
 
   middlewares() {
-    // 
+    // URL encoded for POST requests with form data
+    this.app.use(express.urlencoded({ extended: true }))
+    // JSON parser for API requests
+    this.app.use(express.json())
+    // Enable the use of the public folder
+    this.app.use(express.static('public'))
+    // Cookies by cookie parser
+    this.app.use(cookieParser())
   }
 
   routes() {
-    // 
+    this.app.use(this.paths.root, rootRoutes)
   }
 
   config() {
-    // 
+    this.app.engine('hbs', this.hbs.engine)
+    this.app.set('view engine', 'hbs')
+    this.app.set('views', './views')
   }
 
   listen() {
