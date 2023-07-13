@@ -1,9 +1,14 @@
 const express = require('express')
 const { create } = require('express-handlebars')
 const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
 
+const { dbConnection } = require('./config/db')
 const { rootRoutes } = require('./routes')
 const handlebarsHelpers = require('./helpers/handlebars')
+// TODO: require passport configuration
 
 class Server {
   constructor() {
@@ -32,10 +37,12 @@ class Server {
   }
 
   async connectDB() {
-    // 
+    await dbConnection()
   }
 
   middlewares() {
+    // Enable body parser
+    this.app.use(bodyParser.json())
     // URL encoded for POST requests with form data
     this.app.use(express.urlencoded({ extended: true }))
     // JSON parser for API requests
@@ -44,6 +51,18 @@ class Server {
     this.app.use(express.static('public'))
     // Cookies by cookie parser
     this.app.use(cookieParser())
+    // Session
+    this.app.use(session({
+      secret: process.env.SECRET,
+      key: process.env.KEY,
+      resave: false,
+      saveUninitialized: false,
+      // store: new MongoStore({ mongooseConnection : mongoose.connection })
+      store: MongoStore.create({
+        mongoUrl: process.env.DATABASE,
+      })
+    }))
+    // TODO: Initialize passport
   }
 
   routes() {
