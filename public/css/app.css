@@ -1,0 +1,605 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #100E17;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.6rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+/** Globales **/
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 6rem;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 2.8rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.separator {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  border-bottom: 1px solid #272727;
+}
+
+
+/** buttons **/
+.btn {
+  display: block;
+  padding: 1.4rem 6rem;
+  border: none;
+  border-radius: .6rem;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color .3s ease-out;
+}
+
+.btn-green {
+  background-color: #00C897;
+}
+
+.btn-green:hover {
+  background-color: rgb(10, 155, 119);
+}
+
+.btn-blue {
+  background-color: #00A4B6;
+}
+
+.btn-blue:hover {
+  background-color: rgb(3, 133, 148);
+}
+
+.btn-yellow {
+  background-color: #F6B15F;
+}
+
+.btn-red {
+  background-color: #C80045;
+}
+
+.edit-btn {
+  margin-top: 4rem;
+}
+
+.edit-btn {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+
+/** Header **/
+.tagline {
+  margin: 2rem 0 3rem 0;
+  color: #ffffff;
+  font-size: 2.2rem;
+}
+
+.site-header {
+  min-height: 400px;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.site-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.site-name a {
+  color: white;
+  text-decoration: none;
+}
+
+.searcher {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  padding-top: 1rem;
+}
+
+.searcher form {
+  position: relative;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .searcher form {
+    flex: 0 0 40%;
+  }
+}
+
+.searcher input[type="text"] {
+  width: 100%;
+  height: 5rem;
+  padding: .5rem 4rem .5rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  background-color: rgba(255, 255, 255, .1);
+  font-size: 1.2rem;
+}
+
+.searcher input[type="submit"] {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  text-indent: -9999px;
+  background-image: url(../img/lupa.png);
+  background-color: transparent;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.searcher input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+@media (min-width:768px) {
+
+  .candidate,
+  .vacancie {
+    display: flex;
+  }
+
+  .box {
+    flex: 1;
+  }
+
+  .box:first-of-type {
+    flex: 2;
+  }
+}
+
+.candidate,
+.vacancie {
+  padding: 3rem 0;
+  border-bottom: 1px solid #272727;
+}
+
+.candidate,
+.vacancie:last-of-type {
+  border: none;
+}
+
+.box {
+  padding: .5rem 0;
+}
+
+.box p {
+  color: #ffffff;
+}
+
+.contract {
+  text-transform: capitalize;
+}
+
+.box .position,
+.box .label {
+  margin: 0;
+  color: #616065;
+  font-weight: 700;
+  font-size: 2.6rem;
+  text-align: left;
+}
+
+.box .label {
+  margin: 1rem 0 0 0;
+}
+
+.box .name {
+  margin: .5rem 0;
+  font-size: 2.4rem;
+  text-align: left;
+}
+
+.box .btn {
+  text-align: center;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.horizontal-center {
+  display: flex;
+  justify-content: center;
+}
+
+.vacancie-container h2 {
+  color: #616065;
+  font-size: 2.4rem;
+}
+
+.superior-content {
+  margin-bottom: 6rem;
+}
+
+@media (min-width:768px) {
+  .vacancie-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .vacancie-container main {
+    flex: 0 0 60%;
+  }
+
+  .vacancie-container aside {
+    flex: 0 0 calc(40% - 2rem);
+  }
+}
+
+.vacancie-description h1 {
+  line-height: 1.4;
+}
+
+.vacancie-description * {
+  color: white !important;
+  line-height: 2.2;
+}
+
+.skills {
+  color: white;
+}
+
+.skills li,
+.vacancie-description div {
+  font-size: 1.8rem;
+  line-height: 2.4;
+}
+
+.send-data h2 {
+  font-size: 4rem;
+  color: white;
+}
+
+.send-data p {
+  color: white;
+  font-size: 1.8rem;
+}
+
+.send-data form {}
+
+
+/** Iniciar Sesión **/
+.default-form {
+  max-width: 800px;
+  margin: 4rem auto 0 auto;
+}
+
+.default-form h3 {
+  margin-bottom: 3rem;
+  color: #616065;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+
+.default-form .field {
+  margin-bottom: 3rem;
+  display: flex;
+}
+
+.default-form label {
+  padding-top: 1rem;
+  flex: 0 0 18rem;
+  font-size: 1.8rem;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.default-form input[type="email"],
+.default-form input[type="password"],
+.default-form input[type="text"],
+.default-form input[type="number"],
+.default-form input[type="file"],
+.default-form select,
+.default-form textarea {
+  flex: 1;
+  height: 4.5rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.8rem;
+}
+
+.default-form input[type="file"] {
+  color: white;
+}
+
+trix-toolbar,
+trix-editor {
+  background-color: white !important;
+}
+
+trix-toolbar {
+  padding: 1rem;
+}
+
+trix-editor {
+  min-height: 30rem !important;
+  padding: 2rem;
+  font-size: 1.8rem;
+}
+
+trix-editor h1,
+trix-editor blockquote {
+  color: black;
+}
+
+trix-toolbar .trix-button-group {
+  margin-bottom: 0;
+}
+
+trix-toolbar .trix-button--icon-strike {
+  display: none;
+}
+
+.field.description {
+  display: block;
+}
+
+.field.description label {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.default-form input[type="submit"] {
+  margin-top: 2rem;
+}
+
+.default-form input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.default-form .actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.default-form a {
+  color: #616065;
+  text-decoration: none;
+}
+
+.knowledge-list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.knowledge-list li {
+  height: 5rem;
+  margin-bottom: 2rem;
+  border: 2px solid #00C897;
+  border-radius: 1rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  flex: 0 0 calc(50% - 1rem);
+  align-items: center;
+  justify-content: center;
+}
+
+.knowledge-list li.active {
+  background-color: #00C897;
+}
+
+.knowledge-list li:hover {
+  cursor: pointer;
+}
+
+@media (min-width:480px) {
+  .knowledge-list li {
+    flex: 0 0 calc(33% - 1rem);
+  }
+}
+
+@media (min-width:768px) {
+  .knowledge-list li {
+    flex: 0 0 calc(25% - 1rem);
+  }
+}
+
+@media (min-width:992px) {
+  .knowledge-list li {
+    flex: 0 0 calc(20% - 1rem);
+  }
+}
+
+
+/** Admin **/
+p.candidates {
+  margin: 1rem 0 0 0;
+  display: block;
+  color: white;
+  font-weight: 400;
+  font-size: 1.8rem;
+  text-align: left !important;
+  text-decoration: none;
+  color: #616065;
+}
+
+.admin-profile {
+  width: 120px;
+  align-self: flex-start;
+  margin-right: 1rem;
+}
+
+.sign-out p,
+.sign-out a {
+  margin: 0 2rem 0 0;
+  color: #888;
+}
+
+.sign-out {
+  margin-top: 2rem;
+  color: white;
+  display: flex;
+}
+
+.sign-out img {
+  width: 80px;
+}
+
+.buttons {
+  margin-bottom: 5rem;
+  padding: 2rem 0 5rem 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.buttons a {
+  margin-right: 2rem;
+}
+
+.candidates-list p,
+.vacancies-list p {
+  color: white;
+  text-align: center;
+}
+
+/** alerts **/
+.swal2-popup {
+  width: 60rem !important;
+}
+
+.swal2-popup .swal2-title {
+  font-size: 3.4rem !important;
+}
+
+.swal2-content {
+  font-size: 2rem !important;
+}
+
+.swal2-popup .swal2-styled.swal2-cancel,
+.swal2-popup .swal2-styled.swal2-confirm {
+  font-size: 2rem !important;
+}
+
+
+/** Flash Messages **/
+.alerts {
+  position: fixed;
+  top: 65px;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.alert {
+  margin-top: .3rem;
+  padding: 1rem 3rem;
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.correct {
+  background-color: #00C897;
+}
+
+.error {
+  background-color: #C80045;
+}
+
+.disappear {
+  opacity: 0;
+}
+
+
+/** Biografia vacancie **/
+.info-recruiter h2 {
+  color: #616065;
+  font-size: 2.4rem;
+}
+
+.info-recruiter img {
+  width: 100%;
+  max-width: 300px;
+}
+
+.data-recruiter {
+  margin-top: 4rem;
+  padding: 5rem 0;
+  border-top: 3px solid #272727;
+  display: flex;
+  justify-content: space-between;
+}
+
+.data-recruiter p {
+  font-size: 2.4rem;
+  color: white;
+}
+
+@media (min-width:768px) {
+  .send-data {
+    flex: 0 0 calc(70% - 1rem);
+  }
+
+  .info-recruiter {
+    flex: 0 0 calc(30% - 1rem);
+  }
+}
+
+.send-data h2 {
+  font-size: 4rem;
+  color: white;
+}
+
+.send-data p {
+  color: white;
+  font-size: 1.8rem;
+}

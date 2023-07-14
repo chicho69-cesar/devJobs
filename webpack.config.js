@@ -4,11 +4,11 @@ import path from 'node:path'
 export default {
   mode: 'development',
   entry: {
-    file: './src/js/file.js',
+    app: './public/js/app.js',
   },
   output: {
     filename: '[name].js',
-    path: path.resolve('public/js'),
+    path: path.resolve('public/dist'),
   },
   module: {
     rules: [
