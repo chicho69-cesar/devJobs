@@ -6,9 +6,9 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')
 
 const { dbConnection } = require('./config/db')
+const passport = require('./config/passport')
 const { rootRoutes } = require('./routes')
 const handlebarsHelpers = require('./helpers/handlebars')
-// TODO: require passport configuration
 
 class Server {
   constructor() {
@@ -62,7 +62,9 @@ class Server {
         mongoUrl: process.env.DATABASE,
       })
     }))
-    // TODO: Initialize passport
+    // Initialize passport
+    this.app.use(passport.initialize())
+    this.app.use(passport.session())
   }
 
   routes() {
