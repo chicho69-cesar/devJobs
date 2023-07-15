@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
-import path from 'node:path'
+const path = require('node:path')
 
-export default {
+module.exports = {
   mode: 'development',
   entry: {
     app: './public/js/app.js',
