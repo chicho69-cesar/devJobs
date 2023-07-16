@@ -17,14 +17,14 @@
   </head>
 
   <body>
-    <div class="site-name container">
+    <div class="site-name container main-menu">
       <h1>
         <a href="/">devJobs</a>
       </h1>
     
       {{#if searchBar}}
         <div class="searcher">
-          <form action="/searcher" method="POST">
+          <form action="/vacancies/search/query" method="POST">
             <input type="text" name="q" class="search">
             <input type="submit" value="Buscar">
           </form>
@@ -32,11 +32,11 @@
       {{/if}}
     
       {{#if signOut}}
-        <div class="sign-out">
+        <div class="sign-out menu-bar">
           <p>Hola! {{name}}</p>
       
           {{#if image}}
-            <img src="/uploads/profiles/{{image}}" class="admin-profile">
+            <img src="/uploads/profiles/{{image}}" class="admin-profile profile-picture">
           {{/if}}
       
           <a href="/administration">Administración</a>
