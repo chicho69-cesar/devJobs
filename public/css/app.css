@@ -179,7 +179,7 @@ h3 {
 @media (min-width:768px) {
 
   .candidate,
-  .vacancie {
+  .vacancy {
     display: flex;
   }
 
@@ -193,13 +193,13 @@ h3 {
 }
 
 .candidate,
-.vacancie {
+.vacancy {
   padding: 3rem 0;
   border-bottom: 1px solid #272727;
 }
 
 .candidate,
-.vacancie:last-of-type {
+.vacancy:last-of-type {
   border: none;
 }
 
@@ -249,7 +249,7 @@ h3 {
   justify-content: center;
 }
 
-.vacancie-container h2 {
+.vacancy-container h2 {
   color: #616065;
   font-size: 2.4rem;
 }
@@ -259,26 +259,26 @@ h3 {
 }
 
 @media (min-width:768px) {
-  .vacancie-container {
+  .vacancy-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
   }
 
-  .vacancie-container main {
+  .vacancy-container main {
     flex: 0 0 60%;
   }
 
-  .vacancie-container aside {
+  .vacancy-container aside {
     flex: 0 0 calc(40% - 2rem);
   }
 }
 
-.vacancie-description h1 {
+.vacancy-description h1 {
   line-height: 1.4;
 }
 
-.vacancie-description * {
+.vacancy-description * {
   color: white !important;
   line-height: 2.2;
 }
@@ -288,7 +288,7 @@ h3 {
 }
 
 .skills li,
-.vacancie-description div {
+.vacancy-description div {
   font-size: 1.8rem;
   line-height: 2.4;
 }
@@ -475,6 +475,29 @@ p.candidates {
   margin-right: 1rem;
 }
 
+.profile-picture {
+  display: inline-block;
+  width: 50px;
+  height: 80px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50px;
+}
+
+.main-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .sign-out p,
 .sign-out a {
   margin: 0 2rem 0 0;
@@ -547,7 +570,7 @@ p.candidates {
   text-transform: uppercase;
 }
 
-.correct {
+.success {
   background-color: #00C897;
 }
 
@@ -560,7 +583,7 @@ p.candidates {
 }
 
 
-/** Biografia vacancie **/
+/** Biografia vacancy **/
 .info-recruiter h2 {
   color: #616065;
   font-size: 2.4rem;
