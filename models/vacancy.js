@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose')
 const slug = require('slug')
 const { nanoid } = require('nanoid')
 
-const vacancieSchema = new Schema({
+const vacancySchema = new Schema({
   title: {
     type: String,
     required: [true, 'The title is required'],
@@ -40,14 +40,14 @@ const vacancieSchema = new Schema({
     cv: String,
   }],
   author: {
-    type: Schema.ObjectId,
-    ref: 'Users',
+    type: Schema.Types.ObjectId,
+    ref: 'User',
     required: [true, 'The author is required'],
   }
 })
 
 // Create the url with a slug
-vacancieSchema.pre('save', function (next) {
+vacancySchema.pre('save', function (next) {
   const url = slug(this.title)
   this.url = `${url}-${nanoid()}`
 
@@ -55,6 +55,6 @@ vacancieSchema.pre('save', function (next) {
 })
 
 // Create an index
-vacancieSchema.index({ title: 'text' })
+vacancySchema.index({ title: 'text' })
 
-module.exports = model('Vacancie', vacancieSchema)
+module.exports = model('Vacancy', vacancySchema)
