@@ -1,5 +1,9 @@
-const rootRoutes = require('./root.routes')
+const homeRoutes = require('./home.routes')
+const userRoutes = require('./user.routes')
+const vacancyRoutes = require('./vacancy.routes')
 
 module.exports = {
-  rootRoutes
+  homeRoutes,
+  userRoutes,
+  vacancyRoutes
 }
