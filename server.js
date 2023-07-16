@@ -7,7 +7,7 @@ const MongoStore = require('connect-mongo')
 
 const { dbConnection } = require('./config/db')
 const passport = require('./config/passport')
-const { rootRoutes } = require('./routes')
+const { homeRoutes, userRoutes, vacancyRoutes } = require('./routes')
 const handlebarsHelpers = require('./helpers/handlebars')
 
 class Server {
@@ -15,6 +15,13 @@ class Server {
     this.app = express()
     this.port = process.env.PORT || 3000
     this.hbs = create({ 
+      runtimeOptions: {
+        allowedProtoMethods: true,
+        allowProtoMethodsByDefault: true,
+        allowedProtoProperties: true,
+        allowCallsToHelperMissing: true,
+        allowProtoPropertiesByDefault: true
+      },
       extname: 'hbs',
       helpers: handlebarsHelpers,
       layoutsDir: './views/layouts',
@@ -23,7 +30,9 @@ class Server {
     })
 
     this.paths = {
-      root: '/'
+      home: '/',
+      user: '/',
+      vacancy: '/vacancies',
     }
 
     // Database
@@ -56,7 +65,7 @@ class Server {
       secret: process.env.SECRET,
       key: process.env.KEY,
       resave: false,
-      saveUninitialized: false,
+      saveUninitialized: true,
       // store: new MongoStore({ mongooseConnection : mongoose.connection })
       store: MongoStore.create({
         mongoUrl: process.env.DATABASE,
@@ -68,7 +77,9 @@ class Server {
   }
 
   routes() {
-    this.app.use(this.paths.root, rootRoutes)
+    this.app.use(this.paths.home, homeRoutes)
+    this.app.use(this.paths.user, userRoutes)
+    this.app.use(this.paths.vacancy, vacancyRoutes)
   }
 
   config() {
