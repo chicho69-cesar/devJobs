@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedSkills()
   }
 
-  const vacanciesList = document.querySelector('.admin-dashboard') // panel-administracion
+  const vacanciesList = document.querySelector('.admin-dashboard') // panel-administración
 
   if (vacanciesList) {
     vacanciesList.addEventListener('click', actionsList)

@@ -12,7 +12,7 @@ const validationEmail = () =>
 const validationPassword = () => 
   body('password')
     .notEmpty().withMessage('La contraseña es requerida')
-    .isLength({ min: 6 }).withMessage('La contraseña debe tener minimo 6 caracteres')
+    .isLength({ min: 6 }).withMessage('La contraseña debe tener mínimo 6 caracteres')
 
 const validationConfirmPassword = () =>
   body('confirm')

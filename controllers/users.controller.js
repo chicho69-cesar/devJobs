@@ -30,7 +30,7 @@ const createUser = async (req = request, res = response) => {
     await user.save()
 
     req.session.messages = {
-      success: ['Usuario creado con exito']
+      success: ['Usuario creado con éxito']
     }
 
     return res.redirect('/sign-in')
@@ -50,7 +50,7 @@ const signInForm = (req = request, res = response) => {
   delete req.session.messages
 
   return res.render('sign-in', {
-    pageName: 'Inicia sesion en devJobs',
+    pageName: 'Inicia sesión en devJobs',
     messages,
   })
 }
@@ -72,7 +72,7 @@ const editProfile = async (req = request, res = response) => {
     return res.render('edit-profile', {
       errors: errors.array(),
       messages: {
-        error: ['Error al actualizar la informacion del usuario']
+        error: ['Error al actualizar la información del usuario']
       },
       pageName: 'Edita tu perfil en devJobs',
       user: req.user,
@@ -99,7 +99,7 @@ const editProfile = async (req = request, res = response) => {
   await user.save()
 
   req.session.messages = {
-    success: ['Usuario actualizado con exito']
+    success: ['Usuario actualizado con éxito']
   }
 
   return res.redirect('/administration')
