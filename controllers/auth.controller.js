@@ -9,7 +9,7 @@ const { sendMail } = require('../helpers/emails')
 const authenticateUser = passport.authenticate('local', {
   successRedirect: '/administration',
   failureRedirect: '/sign-in',
-  failureFlash: true,
+  // failureFlash: true,
   badRequestMessage: 'Invalid email or password'
 })
 
@@ -72,7 +72,7 @@ const sendToken = async (req = request, res = response) => {
   user.expiration = Date.now() + 3600000
 
   await user.save()
-  
+
   const resetUrl = `${req.protocol}://${req.get('host')}/reset-password/${user.token}`
   await sendMail({
     user,
@@ -90,7 +90,7 @@ const sendToken = async (req = request, res = response) => {
 
 const resetPassword = async (req = request, res = response) => {
   const { token } = req.params
-  
+
   const user = await User.findOne({ token })
   if (!user) {
     req.session.messages = {
